@@ -4,12 +4,12 @@
   "private": true,
   "proxy": "https://frontend-interview.spotahome.com",
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "styled-components": "^4.2.0",
-    "uuid": "^3.3.2",
-    "prop-types": "^15.6.2"
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

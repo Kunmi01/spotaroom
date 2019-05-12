@@ -2,10 +2,13 @@ import styled from 'styled-components';
 import { colors, responsive } from '../../config';
 
 export const Wrapper = styled.div`
-  background: ${colors.white};
+  position: relative;
   display: flex;
+  background: ${colors.white};
   align-items: center;
   height: 100px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.13);
+  z-index: 2;
 `;
 
 export const Brand = styled.div`

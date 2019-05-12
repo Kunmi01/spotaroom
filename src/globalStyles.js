@@ -18,7 +18,6 @@ const GlobalStyle = createGlobalStyle`
             sans-serif;;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-		background: lightgray;
     }
 
     code {
@@ -38,7 +37,12 @@ const GlobalStyle = createGlobalStyle`
         &:hover {
             text-decoration: underline;
         }
-	}
+    }
+
+    a:focus,
+	button:focus {
+		outline: none;
+    }
 `;
 
 export default GlobalStyle;

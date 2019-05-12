@@ -8,13 +8,13 @@ const Header = () => (
     </Brand>
     <NavBar>
       <li>
-        <a href="./">The Company</a>
+        <a href="./">The company</a>
       </li>
       <li>
         <a href="./">How we work</a>
       </li>
       <li>
-        <a href="./">Contact Us</a>
+        <a href="./">Contact us</a>
       </li>
     </NavBar>
   </Wrapper>
