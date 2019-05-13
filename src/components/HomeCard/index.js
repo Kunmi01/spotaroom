@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { Wrapper, ImageWrapper, InfoWrapper, DetailsWrapper, ButtonsWrapper } from './style';
 
 const HomeCard = (props) => {
-  const { title, currency, price } = props;
+  const { imageUrl, title, currency, price } = props;
 
   return (
     <Wrapper>
-      <ImageWrapper>Image</ImageWrapper>
+      <ImageWrapper>
+        <img src={imageUrl} alt="property" />
+      </ImageWrapper>
       <InfoWrapper>
         <DetailsWrapper>
           <h2>{title}</h2>
@@ -30,9 +32,10 @@ const HomeCard = (props) => {
 };
 
 HomeCard.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
 };
 
 export default HomeCard;

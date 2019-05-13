@@ -16,16 +16,18 @@ export const Wrapper = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  background: ${colors.light_green};
-  min-width: 100%;
-  min-height: 110px;
+  width: 100%;
 
   ${responsive.medium(`
-    min-width: 250px;
-    min-height: 100%;
+    max-width: 190px;
     align-self: normal;
     margin-right: 30px;
   `)};
+
+  img {
+    display: block;
+    width: 100%;
+  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -68,6 +70,7 @@ export const ButtonsWrapper = styled.div`
     color: white;
     text-align: center;
     font-size: 20px;
+    font-weight: bold;
     min-width: 170px;
     height: 45px;
     padding: 0 30px;
