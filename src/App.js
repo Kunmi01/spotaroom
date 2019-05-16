@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import GlobalStyle from './globalStyles';
-import { colors } from './config';
 import Header from './components/Header';
 import HomeCard from './components/HomeCard';
+import { Wrapper, CardsWrapper, OptionsWrapper, FilterWrapper, TotalReturned } from './AppStyles';
 
 const uuid = require('uuid/v1');
-
-const Wrapper = styled.div`
-  background: ${colors.light_grey};
-  margin: 0 auto;
-`;
-
-const CardsWrapper = styled.div`
-  padding: 30px;
-  overflow-y: auto;
-  height: calc(100vh - 100px);
-`;
 
 class App extends Component {
   state = {
@@ -37,25 +25,68 @@ class App extends Component {
       });
   }
 
+  handleChange = (event) => {
+    const filterValue = event.target.value;
+
+    if (filterValue === 'all') {
+      this.setState({ filterValue: null });
+    } else {
+      this.setState({ filterValue });
+    }
+  };
+
   render() {
-    const { homecards } = this.state;
+    const { homecards, filterValue } = this.state;
 
     return (
       <Wrapper>
         <GlobalStyle />
         <Header />
+        <OptionsWrapper>
+          <FilterWrapper>
+            Filter:
+            <select onChange={this.handleChange}>
+              <option value="all">all</option>
+              <option value="apartment">apartment</option>
+              <option value="roomShared">roomShared</option>
+              <option value="studio">studio</option>
+              <option value="residence">residence</option>
+            </select>
+          </FilterWrapper>
+          <TotalReturned>
+            {homecards &&
+              `Total returned: ${
+                filterValue
+                  ? homecards.filter((card) => card.type === filterValue).length
+                  : homecards.length
+              }`}
+          </TotalReturned>
+        </OptionsWrapper>
         <CardsWrapper>
-          {homecards
-            ? homecards.map((card) => (
-                <HomeCard
-                  key={uuid()}
-                  imageUrl={card.photoUrls.homecardHidpi}
-                  title={card.title}
-                  currency={card.currencySymbol}
-                  price={card.pricePerMonth}
-                />
-              ))
-            : 'Loading...'}
+          {homecards &&
+            (filterValue
+              ? homecards
+                  .filter((card) => card.type === filterValue)
+                  .map((card) => (
+                    <HomeCard
+                      key={uuid()}
+                      imageUrl={card.photoUrls.homecardHidpi}
+                      title={card.title}
+                      type={card.type}
+                      currency={card.currencySymbol}
+                      price={card.pricePerMonth}
+                    />
+                  ))
+              : homecards.map((card) => (
+                  <HomeCard
+                    key={uuid()}
+                    imageUrl={card.photoUrls.homecardHidpi}
+                    title={card.title}
+                    type={card.type}
+                    currency={card.currencySymbol}
+                    price={card.pricePerMonth}
+                  />
+                )))}
         </CardsWrapper>
       </Wrapper>
     );

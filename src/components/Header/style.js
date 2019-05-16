@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   background: ${colors.white};
   align-items: center;
   height: 100px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.13);
+  border-bottom: 1px solid ${colors.light_grey};
   z-index: 2;
 `;
 
