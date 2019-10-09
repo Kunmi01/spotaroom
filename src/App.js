@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import GlobalStyle from './globalStyles';
-import Header from './components/Header';
-import HomeCard from './components/HomeCard';
-import { Wrapper, CardsWrapper, OptionsWrapper, FilterWrapper, TotalReturned } from './AppStyles';
 
-const uuid = require('uuid/v1');
+import Header from './components/Header';
+import HomeCardList from './components/HomeCardList';
+import GlobalStyle from './globalStyles';
+import { Wrapper, OptionsWrapper, FilterWrapper, TotalReturned } from './AppStyles';
 
 class App extends Component {
   state = {
     homecards: null,
+    filterValue: null,
   };
 
   componentDidMount() {
@@ -56,38 +56,11 @@ class App extends Component {
           <TotalReturned>
             {homecards &&
               `Total returned: ${
-                filterValue
-                  ? homecards.filter((card) => card.type === filterValue).length
-                  : homecards.length
+                homecards.filter((card) => (filterValue ? card.type === filterValue : card)).length
               }`}
           </TotalReturned>
         </OptionsWrapper>
-        <CardsWrapper>
-          {homecards &&
-            (filterValue
-              ? homecards
-                  .filter((card) => card.type === filterValue)
-                  .map((card) => (
-                    <HomeCard
-                      key={uuid()}
-                      imageUrl={card.photoUrls.homecardHidpi}
-                      title={card.title}
-                      type={card.type}
-                      currency={card.currencySymbol}
-                      price={card.pricePerMonth}
-                    />
-                  ))
-              : homecards.map((card) => (
-                  <HomeCard
-                    key={uuid()}
-                    imageUrl={card.photoUrls.homecardHidpi}
-                    title={card.title}
-                    type={card.type}
-                    currency={card.currencySymbol}
-                    price={card.pricePerMonth}
-                  />
-                )))}
-        </CardsWrapper>
+        <HomeCardList homecards={homecards} filterValue={filterValue} />
       </Wrapper>
     );
   }

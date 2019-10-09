@@ -6,12 +6,6 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const CardsWrapper = styled.div`
-  padding: 30px;
-  overflow-y: auto;
-  height: calc(100vh - 200px);
-`;
-
 export const OptionsWrapper = styled.div`
   position: relative;
   display: flex;
