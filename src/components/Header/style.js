@@ -27,16 +27,15 @@ export const NavBar = styled.ul`
   ${responsive.medium(`
         display: flex;
     `)};
+`;
 
-  li {
-    position: relative;
-    font-weight: bold;
-    padding: 0 30px;
-
-    &:not(:last-of-type)::after {
-      content: '-';
-      position: absolute;
-      right: -4px;
-    }
+export const NavItem = styled.li`
+  position: relative;
+  font-weight: bold;
+  padding: 0 30px;
+  &:not(:last-of-type)::after {
+    content: '-';
+    position: absolute;
+    right: -4px;
   }
 `;

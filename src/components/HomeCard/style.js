@@ -41,17 +41,16 @@ export const DetailsWrapper = styled.div`
   ${responsive.mini(`
     flex-direction: row;
   `)};
+`;
 
-  h2 {
-    font-size: 24px;
-    font-weight: normal;
-    margin: 20px 0;
-
-    &.price {
-      font-weight: bold;
-      padding-left: 30px;
-      margin-left: auto;
-    }
+export const Detail = styled.h2`
+  font-size: 24px;
+  font-weight: normal;
+  margin: 20px 0;
+  &.price {
+    font-weight: bold;
+    padding-left: 30px;
+    margin-left: auto;
   }
 `;
 
@@ -63,28 +62,25 @@ export const ButtonsWrapper = styled.div`
   ${responsive.mini(`
     flex-direction: row;
   `)};
+`;
 
-  button {
-    background-color: ${colors.light_green};
-    border-bottom: 5px solid rgba(0, 0, 0, 0.3);
-    color: white;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    min-width: 170px;
-    height: 45px;
-    padding: 0 30px;
-
-    &.secondary {
-      background: ${colors.orange};
-    }
-
-    &:not(:last-of-type) {
-      margin-bottom: 10px;
-
-      ${responsive.mini(`
-        margin: 0 10px 0 0;
-      `)};
+export const CardButton = styled.button`
+  background-color: lightgreen;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.3);
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  min-width: 170px;
+  height: 45px;
+  padding: 0 30px;
+  &.secondary {
+    background: orange;
+  }
+  &:not(:last-of-type) {
+    margin-bottom: 10px;
+    @media screen and (min-width: 495px) {
+      margin: 0 10px 0 0;
     }
   }
 `;

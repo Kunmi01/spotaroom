@@ -1,6 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, ImageWrapper, InfoWrapper, DetailsWrapper, ButtonsWrapper } from './style';
+
+import {
+  Wrapper,
+  ImageWrapper,
+  InfoWrapper,
+  DetailsWrapper,
+  ButtonsWrapper,
+  Detail,
+  CardButton,
+} from './style';
 
 const HomeCard = (props) => {
   const { imageUrl, title, type, currency, price } = props;
@@ -8,28 +17,28 @@ const HomeCard = (props) => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <img src={imageUrl} alt="property" />
+        <img src={imageUrl} alt={title} />
       </ImageWrapper>
       <InfoWrapper>
         <DetailsWrapper>
-          <h2>
+          <Detail>
             {title}
             <br />
             <br />
             Type: {type}
-          </h2>
-          <h2 className="price">
+          </Detail>
+          <Detail className="price">
             {currency}
             {price}
-          </h2>
+          </Detail>
         </DetailsWrapper>
         <ButtonsWrapper>
-          <button className="secondary" type="button">
+          <CardButton className="secondary" type="button">
             More details
-          </button>
-          <button className="primary" type="button">
+          </CardButton>
+          <CardButton className="primary" type="button">
             Book now!
-          </button>
+          </CardButton>
         </ButtonsWrapper>
       </InfoWrapper>
     </Wrapper>

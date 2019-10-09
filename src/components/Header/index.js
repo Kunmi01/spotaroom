@@ -1,23 +1,24 @@
-import React from 'react';
-import { Wrapper, Brand, NavBar } from './style';
+import React, { memo } from 'react';
 
-const Header = () => (
+import { Wrapper, Brand, NavBar, NavItem } from './style';
+
+const Header = memo(() => (
   <Wrapper>
     <Brand>
       <strong>[ SPOT</strong>A<strong>ROOM ]</strong>
     </Brand>
     <NavBar>
-      <li>
+      <NavItem>
         <a href="./">The company</a>
-      </li>
-      <li>
+      </NavItem>
+      <NavItem>
         <a href="./">How we work</a>
-      </li>
-      <li>
+      </NavItem>
+      <NavItem>
         <a href="./">Contact us</a>
-      </li>
+      </NavItem>
     </NavBar>
   </Wrapper>
-);
+));
 
 export default Header;

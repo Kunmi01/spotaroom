@@ -4,8 +4,6 @@ import styled from 'styled-components';
 
 import HomeCard from '../HomeCard';
 
-const uuid = require('uuid/v1');
-
 const CardsWrapper = styled.div`
   padding: 30px;
   overflow-y: auto;
@@ -22,7 +20,7 @@ const HomeCardList = (props) => {
           .filter((card) => (filterValue ? card.type === filterValue : card))
           .map((card) => (
             <HomeCard
-              key={uuid()}
+              key={card.title}
               imageUrl={card.photoUrls.homecardHidpi}
               title={card.title}
               type={card.type}
